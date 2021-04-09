@@ -15,6 +15,7 @@ namespace ProyectoMvc.DataAccess.Repositorio
             TiposIdentificacion = new TipoIdentificacionRepositorio(_db);
             Encargados = new EncargadoRepositorio(_db);
             Empleados = new EmpleadoRepositorio(_db);
+            Ninos = new NinoRepositorio(_db);
         }
 
         readonly ApplicationDbContext _db;
@@ -27,7 +28,9 @@ namespace ProyectoMvc.DataAccess.Repositorio
 
         public IEmpleadoRepositorio Empleados { get; private set; }
 
-        
+        public INinoRepositorio Ninos { get; private set; }
+
+
 
         public void Dispose()
         {
