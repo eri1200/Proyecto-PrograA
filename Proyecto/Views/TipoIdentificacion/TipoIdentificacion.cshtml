@@ -1,0 +1,22 @@
+﻿@model IEnumerable<ProyectoMvc.Models.TipoIdentificacion>
+
+@{ ViewData["Title"] = "Listado de tipos de identificación"; }
+
+<h1 class="text-center"><i class="fas fa-comments-dollar text-success"></i> Listado de Infantes</h1>
+
+<table class="table" id="tblTiposIdentificacion">
+    <thead class="thead-light">
+        <tr>
+            <th>Descripción</th>
+            <th>
+                <a onclick="ShowPopup('@Url.Action("TipoIdentificacionUpsert", "TipoIdentificacion", null, Context.Request.Scheme)','Nuevo')" class="btn btn-success text-white"><i class="fas fa-random"></i> Nuevo</a>
+            </th>
+        </tr>
+    </thead>
+</table>
+
+@section Scripts
+{
+    <partial name="_ValidationScriptsPartial" />
+    <script type="text/javascript" src="~/js/Nino.js"></script>
+}
