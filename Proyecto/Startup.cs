@@ -6,6 +6,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using ProyectoMvc.DataAccess.Data;
+using ProyectoMvc.DataAccess.Repositorio;
+using ProyectoMvc.DataAccess.Repositorio.IRepositorio;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,6 +33,14 @@ namespace ProyectoMvc
                        options.UseSqlServer
                            (Configuration.GetConnectionString("DefaultConnection"))
                );
+            //services.AddDatabaseDeveloperPageExceptionFilter();
+            //services.AddIdentity<IdentityUser, IdentityRole>()
+            //    .AddDefaultTokenProviders()
+            //    .AddEntityFrameworkStores<ApplicationDbContext>();
+            //services.AddSingleton<IEmailSender, EmailSender>();
+            services.AddScoped<IControlador, Controlador>();
+            services.AddControllersWithViews();
+            services.AddRazorPages();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
