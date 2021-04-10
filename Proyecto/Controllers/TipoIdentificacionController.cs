@@ -2,31 +2,34 @@
 using Microsoft.EntityFrameworkCore;
 using ProyectoMvc.DataAccess.Repositorio.IRepositorio;
 using ProyectoMvc.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace ProyectoMvc.Controllers
 {
-    public class NinoController : Controller
+    public class TipoIdentificacionController : Controller
     {
-        public NinoController(IControlador controlador)
+        public TipoIdentificacionController(IControlador controlador)
         {
             _controlador = controlador;
         }
-
         readonly IControlador _controlador;
 
-        public IActionResult Nino()
+        public IActionResult TipoIdentificacion()
         {
             return View();
         }
 
         [HttpGet]
-        public IActionResult NinoUpsert(int id = 0)
+        public IActionResult TipoIdentificacionUpsert(int id = 0)
         {
             if (id == 0)
-                return View(new Nino());
+                return View(new TipoIdentificacion());
             else
             {
-                var t = _controlador.Ninos.Buscar(id);
+                var t = _controlador.TiposIdentificacion.Buscar(id);
                 if (t == null)
                 {
                     return NotFound();
@@ -37,25 +40,25 @@ namespace ProyectoMvc.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult NinoUpsert(int id, Nino nino)
+        public IActionResult TipoIdentificacionUpsert(int id, TipoIdentificacion tipoIdentificacion)
         {
             if (ModelState.IsValid)
             {
                 if (id == 0)
                 {
-                    _controlador.Ninos.Agregar(nino);
+                    _controlador.TiposIdentificacion.Agregar(tipoIdentificacion);
                     _controlador.Guardar();
                 }
                 else
                 {
                     try
                     {
-                        _controlador.Ninos.Actualizar(nino);
+                        _controlador.TiposIdentificacion.Actualizar(tipoIdentificacion);
                         _controlador.Guardar();
                     }
                     catch (DbUpdateConcurrencyException)
                     {
-                        if (_controlador.Ninos.Buscar(nino.Id) == null)
+                        if (_controlador.TiposIdentificacion.Buscar(tipoIdentificacion.Id) == null)
                         {
                             return NotFound();
                         }
@@ -66,7 +69,7 @@ namespace ProyectoMvc.Controllers
                     }
                 }
 
-                return Json(new { success = true, message = "El nuevo ingreso ha sido guardada." });
+                return Json(new { success = true, message = "El registro se ha guardado exitosamente." });
             }
 
             return Json(new { success = false, message = "Ocurrió un error guardando el nuevo ingreso." });
@@ -75,21 +78,20 @@ namespace ProyectoMvc.Controllers
         [HttpGet]
         public IActionResult Listar()
         {
-            return Json(new { success = true, data = _controlador.Ninos.Listar() });
+            return Json(new { success = true, data = _controlador.TiposIdentificacion.Listar() });
         }
 
         [HttpDelete]
         public IActionResult Borrar(int id)
         {
-            var t = _controlador.Ninos.Buscar(id);
+            var t = _controlador.TiposIdentificacion.Buscar(id);
             if (t == null)
             {
-                return Json(new { success = false, message = "Niño o niña no borrado." });
+                return Json(new { success = false, message = "El registro no ha sido borrado." });
             }
-            _controlador.Ninos.Remover(t);
+            _controlador.TiposIdentificacion.Remover(t);
             _controlador.Guardar();
-            return Json(new { success = true, message = "El niño ha sido borrado." });
+            return Json(new { success = true, message = "Registro borrado con éxito." });
         }
     }
 }
-
