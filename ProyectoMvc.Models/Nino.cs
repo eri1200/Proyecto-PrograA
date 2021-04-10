@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 namespace ProyectoMvc.Models
@@ -35,5 +36,22 @@ namespace ProyectoMvc.Models
 
         public string Imagen { get; set; }
 
+        [Required]
+        [DisplayName("Encargado")]
+        public int EncargoId { get; set; }
+
+        [ForeignKey("EncargoId")]
+        [DisplayName("Encargado")]
+        public Encargado Encargado { get; set; }
+
+        [NotMapped]
+        public string NombreEncargado
+        {
+            get
+            {
+                return
+                    string.Concat(Nombre, " ", Apellidos);
+            }
+        }
     }
 }

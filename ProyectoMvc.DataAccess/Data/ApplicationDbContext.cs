@@ -17,7 +17,9 @@ namespace ProyectoMvc.DataAccess.Data
 
         public DbSet<Encargado> Encargados { get; set; }
 
-      
+        public DbSet<Nino> Ninos { get; set; }
+
+
 
 
     }

@@ -22,9 +22,6 @@ namespace ProyectoMvc.Models
         [Required(ErrorMessage = "Este campo es requerido.")]
         [MaxLength(20, ErrorMessage = "Máximo 20 caracteres.")]
         public string Identificacion { get; set; }
-        public int IdentificacionId { get; set; }
-
-        [ForeignKey("IdentificacionId")]
 
         [Required]
         [DisplayName("Nombre")]
@@ -54,6 +51,17 @@ namespace ProyectoMvc.Models
         public DateTime FechaNacimiento { get; set; }
 
         public string Imagen { get; set; }
+
+        [NotMapped]
+        public string NombreEncargado
+        {
+            get
+            {
+                return
+                    string.Concat(Nombre, " ", Apellidos);
+            }
+        }
+
 
     }
 }

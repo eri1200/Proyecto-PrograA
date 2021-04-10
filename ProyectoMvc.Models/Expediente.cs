@@ -9,6 +9,9 @@ namespace ProyectoMvc.Models
 {
     public class Expediente
     {
+        [Key]
+        public int Id { get; set; }
+
         [Required]
         [DisplayName("Nino")]
         public int NinoId { get; set; }

@@ -1,0 +1,22 @@
+﻿@model IEnumerable<ProyectoMvc.Models.Nino>
+
+@{ ViewData["Title"] = "Listado de infantes"; }
+
+<h1 class="text-center"><i class="fas fa-comments-dollar text-success"></i> Listado de Infantes</h1>
+
+<table class="table" id="tblNinos">
+    <thead class="thead-light">
+        <tr>
+            <th>Nombre</th>
+            <th>
+                <a onclick="ShowPopup('@Url.Action("NinoUpsert", "Nino", null, Context.Request.Scheme)','Nuevo infante')" class="btn btn-success text-white"><i class="fas fa-random"></i> Nuevo Infante</a>
+            </th>
+        </tr>
+    </thead>
+</table>
+
+@section Scripts
+{
+    <partial name="_ValidationScriptsPartial" />
+    <script type="text/javascript" src="~/js/Nino.js"></script>
+}

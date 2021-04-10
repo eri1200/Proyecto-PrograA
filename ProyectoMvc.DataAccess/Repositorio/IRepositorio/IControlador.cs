@@ -14,6 +14,10 @@ namespace ProyectoMvc.DataAccess.Repositorio.IRepositorio
 
         IEmpleadoRepositorio Empleados { get; }
 
+        INinoRepositorio Ninos { get; }
+
         void Guardar();
     }
+
+    
 }
