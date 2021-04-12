@@ -1,9 +1,13 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using ProyectoMvc.DataAccess.Data;
+using ProyectoMvc.DataAccess.Repositorio;
+using ProyectoMvc.DataAccess.Repositorio.IRepositorio;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,7 +27,20 @@ namespace ProyectoMvc
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<ApplicationDbContext>
+               (
+                   options =>
+                       options.UseSqlServer
+                           (Configuration.GetConnectionString("DefaultConnection"))
+               );
+            //services.AddDatabaseDeveloperPageExceptionFilter();
+            //services.AddIdentity<IdentityUser, IdentityRole>()
+            //    .AddDefaultTokenProviders()
+            //    .AddEntityFrameworkStores<ApplicationDbContext>();
+            //services.AddSingleton<IEmailSender, EmailSender>();
+            services.AddScoped<IControlador, Controlador>();
             services.AddControllersWithViews();
+            services.AddRazorPages();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

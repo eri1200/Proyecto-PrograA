@@ -1,0 +1,22 @@
+﻿@model IEnumerable<ProyectoMvc.Models.Empleado>
+
+@{ ViewData["Title"] = "Listado de empleados"; }
+
+<h1 class="text-center"><i class="fas fa-comments-dollar text-success"></i> Listado de Empleados</h1>
+
+<table class="table" id="tblEmpleados">
+    <thead class="thead-light">
+        <tr>
+            <th>Nombre del empleado</th>
+            <th>
+                <a onclick="ShowPopup('@Url.Action("EmpleadoUpsert", "Empleado", null, Context.Request.Scheme)','Nuevo')" class="btn btn-success text-white"><i class="fas fa-random"></i> Nuevo</a>
+            </th>
+        </tr>
+    </thead>
+</table>
+
+@section Scripts
+{
+    <partial name="_ValidationScriptsPartial" />
+    <script type="text/javascript" src="~/js/Empleado.js"></script>
+}

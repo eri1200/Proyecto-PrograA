@@ -18,7 +18,9 @@ namespace ProyectoMvc.DataAccess.Data
         public DbSet<Bitacora> Bitacoras { get; set; }
 
 
-      
+        public DbSet<Nino> Ninos { get; set; }
+
+
 
 
     }
