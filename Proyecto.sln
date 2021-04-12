@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31019.35
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProyectoMvc", "Proyecto\ProyectoMvc.csproj", "{02AB9735-A65A-409A-9413-CF07D93EFE82}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProyectoMvc", "Proyecto\ProyectoMvc.csproj", "{02AB9735-A65A-409A-9413-CF07D93EFE82}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProyectoMvc.DataAccess", "ProyectoMvc.DataAccess\ProyectoMvc.DataAccess.csproj", "{9EC1CA13-719F-4DEF-84DE-BA0C088FE94A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProyectoMvc.DataAccess", "ProyectoMvc.DataAccess\ProyectoMvc.DataAccess.csproj", "{9EC1CA13-719F-4DEF-84DE-BA0C088FE94A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProyectoMvc.Models", "ProyectoMvc.Models\ProyectoMvc.Models.csproj", "{32E38E5A-4454-4EEA-B4A1-6BD21B8F2BC5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProyectoMvc.Models", "ProyectoMvc.Models\ProyectoMvc.Models.csproj", "{32E38E5A-4454-4EEA-B4A1-6BD21B8F2BC5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

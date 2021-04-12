@@ -15,7 +15,8 @@ namespace ProyectoMvc.DataAccess.Data
 
         public DbSet<TipoIdentificacion> TiposIdentificacion { get; set; }
 
-        public DbSet<Encargado> Encargados { get; set; }
+        public DbSet<Bitacora> Bitacoras { get; set; }
+
 
       
 
