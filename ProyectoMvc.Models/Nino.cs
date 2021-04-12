@@ -45,7 +45,7 @@ namespace ProyectoMvc.Models
         public Encargado Encargado { get; set; }
 
         [NotMapped]
-        public string NombreEncargado
+        public string NombreNino
         {
             get
             {
