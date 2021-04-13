@@ -9,6 +9,8 @@ namespace ProyectoMvc.Models
 {
     public class Bitacora
     {
+        public int Id { get; set; }
+
         [Required]
         [DisplayName("Encargado")]
         public int EncargoId { get; set; }

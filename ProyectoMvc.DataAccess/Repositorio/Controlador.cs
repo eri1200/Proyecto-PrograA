@@ -1,5 +1,6 @@
 ﻿using ProyectoMvc.DataAccess.Data;
 using ProyectoMvc.DataAccess.Repositorio.IRepositorio;
+using ProyectoMvc.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -16,6 +17,7 @@ namespace ProyectoMvc.DataAccess.Repositorio
             Encargados = new EncargadoRepositorio(_db);
             Empleados = new EmpleadoRepositorio(_db);
             Ninos = new NinoRepositorio(_db);
+            Bitacoras = new BitacoraRepositorio(_db);
         }
 
         readonly ApplicationDbContext _db;
@@ -29,6 +31,8 @@ namespace ProyectoMvc.DataAccess.Repositorio
         public IEmpleadoRepositorio Empleados { get; private set; }
 
         public INinoRepositorio Ninos { get; private set; }
+
+        public IBitacoraRepositorio Bitacoras { get; private set; }
 
 
 
