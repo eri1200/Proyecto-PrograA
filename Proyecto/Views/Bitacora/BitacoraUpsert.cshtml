@@ -1,0 +1,53 @@
+﻿@model ProyectoMvc.Models.Bitacora
+
+@{ Layout = null; }
+
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="Upsert" asp-route-id="@Model.Id" onsubmit="return PostForm(this);">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group row m-1">
+                <label asp-for="Nino" class="control-label"></label>
+                <div class="input-group">
+                    <input asp-for="Nino" class="form-control" />
+                </div>
+                <span asp-validation-for="Nino" class="text-danger"></span>
+            </div>
+
+            <div class="form-group row m-1">
+                <label asp-for="Empleado" class="control-label"></label>
+                <div class="input-group">
+                    <input asp-for="Empleado" class="form-control" />
+                </div>
+                <span asp-validation-for="Empleado" class="text-danger"></span>
+            </div>
+            <div class="form-group row m-1">
+                <label asp-for="Encargado" class="control-label"></label>
+                <div class="input-group">
+                    <input asp-for="Encargado" class="form-control" />
+                </div>
+                <span asp-validation-for="Encargado" class="text-danger"></span>
+            </div>
+            <div class="form-group row m-1">
+                <label asp-for="Entrada" class="control-label"></label>
+                <div class="input-group">
+                    <input asp-for="Entrada" class="form-control" />
+                </div>
+                <span asp-validation-for="Entrada" class="text-danger"></span>
+            </div>
+            <div class="form-group row m-1">
+                <label asp-for="Salida" class="control-label"></label>
+                <div class="input-group">
+                    <input asp-for="Salida" class="form-control" />
+                </div>
+                <span asp-validation-for="Salida" class="text-danger"></span>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts
+{
+    <partial name="_ValidationScriptsPartial" />
+}
