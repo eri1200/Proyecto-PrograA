@@ -1,0 +1,22 @@
+﻿@model IEnumerable<ProyectoMvc.Models.Bitacora>
+
+@{ ViewData["Title"] = "Listado de Bitacora"; }
+
+<h1 class="text-center"><i class="fas fa-comments-dollar text-success"></i> Listado de Bitacoras</h1>
+
+<table class="table" id="tblBitacora">
+    <thead class="thead-light">
+        <tr>
+            <th>Bitacoras</th>
+            <th>
+                <a onclick="ShowPopup('@Url.Action("BitacoraUpsert", "Bitacora", null, Context.Request.Scheme)','Nuevo')" class="btn btn-success text-white"><i class="fas fa-random"></i> Nuevo</a>
+            </th>
+        </tr>
+    </thead>
+</table>
+
+@section Scripts
+{
+    <partial name="_ValidationScriptsPartial" />
+    <script type="text/javascript" src="~/js/Empleado.js"></script>
+}
