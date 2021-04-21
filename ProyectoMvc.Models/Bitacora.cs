@@ -9,6 +9,7 @@ namespace ProyectoMvc.Models
 {
     public class Bitacora
     {
+        [Key]
         public int Id { get; set; }
 
         [Required]
@@ -16,7 +17,6 @@ namespace ProyectoMvc.Models
         public int EncargoId { get; set; }
 
         [ForeignKey("EncargoId")]
-        [DisplayName("Encargado")]
         public Encargado Encargado { get; set; }
 
         [Required]
@@ -24,7 +24,6 @@ namespace ProyectoMvc.Models
         public int NinoId { get; set; }
 
         [ForeignKey("NinoId")]
-        [DisplayName("Nino")]
         public Nino Nino { get; set; }
 
         [Required]
@@ -32,7 +31,6 @@ namespace ProyectoMvc.Models
         public int EmpleadoId { get; set; }
 
         [ForeignKey("EmpleadoId")]
-        [DisplayName("Empleado")]
         public Empleado Empleado { get; set; }
 
         [Required]

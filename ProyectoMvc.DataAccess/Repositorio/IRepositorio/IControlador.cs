@@ -16,6 +16,8 @@ namespace ProyectoMvc.DataAccess.Repositorio.IRepositorio
 
         INinoRepositorio Ninos { get; }
 
+        IBitacoraRepositorio Bitacoras { get; }
+
         void Guardar();
     }
 

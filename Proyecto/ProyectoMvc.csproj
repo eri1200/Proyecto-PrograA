@@ -21,4 +21,8 @@
     <ProjectReference Include="..\ProyectoMvc.Models\ProyectoMvc.Models.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Areas\Admin\" />
+  </ItemGroup>
+
 </Project>
