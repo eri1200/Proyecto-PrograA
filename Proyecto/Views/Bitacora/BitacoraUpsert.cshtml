@@ -1,53 +1,92 @@
 ﻿@model ProyectoMvc.Models.Bitacora
 
-@{ Layout = null; }
+@{
+    var titulo = "Crear Bitacora";
+}
 
-<div class="row">
-    <div class="col-md-12">
-        <form asp-action="Upsert" asp-route-id="@Model.Id" onsubmit="return PostForm(this);">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Id" />
-            <div class="form-group row m-1">
-                <label asp-for="Nino" class="control-label"></label>
-                <div class="input-group">
+<form method="post">
+    <div class="row p-3 border">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        @if (Model.Id != 0)
+        {
+            titulo = "Editar Bitacora";
+        }
+
+        <div class="col-12 border-bottom">
+            <h2 class="text-primary">@titulo</h2>
+        </div>
+        <div class="col-8 pt-4">
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Nino"></label>
+                </div>
+                <div class="col-8">
                     <input asp-for="Nino" class="form-control" />
+                    <span asp-validation-for="Nino" class="text-danger"></span>
                 </div>
-                <span asp-validation-for="Nino" class="text-danger"></span>
             </div>
-
-            <div class="form-group row m-1">
-                <label asp-for="Empleado" class="control-label"></label>
-                <div class="input-group">
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Empleado"></label>
+                </div>
+                <div class="col-8">
                     <input asp-for="Empleado" class="form-control" />
+                    <span asp-validation-for="Empleado" class="text-danger"></span>
                 </div>
-                <span asp-validation-for="Empleado" class="text-danger"></span>
             </div>
-            <div class="form-group row m-1">
-                <label asp-for="Encargado" class="control-label"></label>
-                <div class="input-group">
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Encargado"></label>
+                </div>
+                <div class="col-8">
                     <input asp-for="Encargado" class="form-control" />
+                    <span asp-validation-for="Encargado" class="text-danger"></span>
                 </div>
-                <span asp-validation-for="Encargado" class="text-danger"></span>
             </div>
-            <div class="form-group row m-1">
-                <label asp-for="Entrada" class="control-label"></label>
-                <div class="input-group">
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Entrada"></label>
+                </div>
+                <div class="col-8">
                     <input asp-for="Entrada" class="form-control" />
+                    <span asp-validation-for="Entrada" class="text-danger"></span>
                 </div>
-                <span asp-validation-for="Entrada" class="text-danger"></span>
             </div>
-            <div class="form-group row m-1">
-                <label asp-for="Salida" class="control-label"></label>
-                <div class="input-group">
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Salida"></label>
+                </div>
+                <div class="col-8">
                     <input asp-for="Salida" class="form-control" />
+                    <span asp-validation-for="Salida" class="text-danger"></span>
                 </div>
-                <span asp-validation-for="Salida" class="text-danger"></span>
             </div>
-        </form>
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Motivo"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="Motivo" class="form-control" />
+                    <span asp-validation-for="Motivo" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-8 offset-4">
+                    @if (Model.Id != 0)
+                    {
+                        <partial name="~/Views/Shared/_BotonesActualizarRegresar.cshtml" model="Model.Id" />
+                    }
+                    else
+                    {
+                        <partial name="~/Views/Shared/_BotonesCrearRegresar.cshtml" />
+                    }
+                </div>
+            </div>
+        </div>
     </div>
-</div>
+</form>
 
-@section Scripts
-{
+@section Scripts{
     <partial name="_ValidationScriptsPartial" />
 }
