@@ -1,4 +1,5 @@
-﻿using ProyectoMvc.DataAccess.Data;
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using ProyectoMvc.DataAccess.Data;
 using ProyectoMvc.DataAccess.Repositorio.IRepositorio;
 using ProyectoMvc.Models;
 using System;
@@ -24,6 +25,15 @@ namespace ProyectoMvc.DataAccess.Repositorio
             {
                 t.Descripcion = tipoIdentificacion.Descripcion;
             }
+        }
+
+        public IEnumerable<SelectListItem> Listar()
+        {
+            return _db.TiposIdentificacion.Select(i => new SelectListItem()
+            {
+                Text = i.Descripcion,
+                Value = i.Id.ToString()
+            });;
         }
     }
 }
