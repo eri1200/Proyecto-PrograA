@@ -12,7 +12,7 @@ namespace ProyectoMvc.Models
             [Key]
             public int Id { get; set; }
 
-            [DisplayName("Nombre")]
+            [DisplayName("Descripcion")]
             [Required(ErrorMessage = "Este campo es requerido.")]
             public string Descripcion { get; set; }
 
